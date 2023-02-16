@@ -20,6 +20,12 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* <Route path='/movies' element={<Movies />}>
+            <Route path='/:movieId' element={<MovieDetails /> }>
+                <Route path='cast' element={<Cast /> }></Route>
+                <Route path='reviews' element={<Reviews /> }></Route>
+            </Route>
+        </Route> */}
       </Routes>
     </Suspense>
   );

@@ -7,15 +7,15 @@ const instance = axios.create({
   },
 });
 
-export const searchMovies = async (q, page = 1) => {
-  const { data } = await instance.get('/', {
-    params: {
-      q,
-      page,
-    },
-  });
-  return data;
-};
+// export const searchMovies = async (q, page = 1) => {
+//   const { data } = await instance.get('/', {
+//     params: {
+//       q,
+//       page,
+//     },
+//   });
+//   return data;
+// };
 
 export const getTrendsMovies = async () => {
   const { data } = await instance.get('/trending/movie/day');

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import Button from '../Button/Button';
+import Button from '../../shared/components/Button/Button';
 import styles from './searchbar.module.scss';
 
-const Searchbar = ({ onSubmit, inputPlaceholder, title }) => {
+const Searchbar = ({ onSubmit }) => {
   const [search, setSearch] = useState('');
 
   const handleSubmit = e => {
@@ -25,7 +25,7 @@ const Searchbar = ({ onSubmit, inputPlaceholder, title }) => {
 
   return (
     <div className={styles.Searchbar}>
-      {title && <h1>{title}</h1>}
+      <h1>Movie search</h1>
 
       <form className={styles.form}>
         <input
@@ -33,7 +33,7 @@ const Searchbar = ({ onSubmit, inputPlaceholder, title }) => {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder={inputPlaceholder}
+          placeholder="Enter the name of the movie"
           value={search}
           onChange={handleChangeInput}
         />

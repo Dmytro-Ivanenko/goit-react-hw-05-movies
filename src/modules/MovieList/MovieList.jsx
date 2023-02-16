@@ -1,28 +1,32 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 import MovieItem from './MovieItem/MovieItem';
 import styles from './movieList.module.scss';
 
 // передивитись логіку, чи треба тут обробка кліку, інщі пропси
 
-const MovieList = ({ movies, onMovieClick }) => {
+const MovieList = ({ movies }) => {
   return (
     <ul className={styles.movies}>
-      {movies?.map(({ id }) => {
-        return <MovieItem key={id} onClick={() => onMovieClick()} />;
+      {movies?.map(({ id, poster_path, release_date, title }) => {
+        return (
+          <MovieItem
+            key={nanoid()}
+            id={id}
+            imgURL={poster_path}
+            dateYear={release_date}
+            movieTitle={title}
+          />
+        );
       })}
     </ul>
   );
 };
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-  onMovieClick: PropTypes.func,
+  movies: PropTypes.array.isRequired,
 };
 
 export default memo(MovieList);

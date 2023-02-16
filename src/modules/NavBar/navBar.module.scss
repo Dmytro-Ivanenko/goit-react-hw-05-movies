@@ -1,4 +1,4 @@
-.NavBar {
+.navBar {
   display: grid;
   max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -10,4 +10,17 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+
+  border-bottom: 1px solid black;
+}
+
+.navlink {
+  color: red;
+  font-size: 30px;
+
+  text-decoration: none;
+
+  &.active {
+    font-weight: 700;
+  }
 }

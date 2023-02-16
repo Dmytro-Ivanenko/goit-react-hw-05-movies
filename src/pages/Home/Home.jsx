@@ -30,11 +30,6 @@ const Home = () => {
       {isLoading && <Spinner />}
       {error && <p>{error.massage}</p>}
       {items.length > 0 && <MovieList movies={items} />}
-      {/* <Route path='/movies' element={<Movies /> }></Route> */}
-
-      {/* <Route path='/:movieId' element={ }></Route>
-        <Route path='/:movieId/cast' element={ }></Route>
-        <Route path='/:movieId/reviews' element={ }></Route> */}
     </>
   );
 };
