@@ -9,19 +9,22 @@ import styles from './movieList.module.scss';
 
 const MovieList = ({ movies }) => {
   return (
-    <ul className={styles.movies}>
-      {movies?.map(({ id, poster_path, release_date, title }) => {
-        return (
-          <MovieItem
-            key={nanoid()}
-            id={id}
-            imgURL={poster_path}
-            dateYear={release_date}
-            movieTitle={title}
-          />
-        );
-      })}
-    </ul>
+    <>
+      <h1>Trending movies</h1>
+      <ul className={styles.movies}>
+        {movies?.map(({ id, poster_path, release_date, title }) => {
+          return (
+            <MovieItem
+              key={nanoid()}
+              id={id}
+              imgURL={poster_path}
+              dateYear={release_date}
+              movieTitle={title}
+            />
+          );
+        })}
+      </ul>
+    </>
   );
 };
 

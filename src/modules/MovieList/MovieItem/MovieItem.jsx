@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './movieItem.module.scss';
 
@@ -9,9 +9,10 @@ const MovieItem = ({
   movieTitle = '',
   dateYear = 'some year',
 }) => {
+  const location = useLocation();
   return (
     <li className={styles.MovieItem}>
-      <Link to={`${id}`}>
+      <Link to={`/movies/${id}`} state={{ from: location }}>
         <img
           className={styles.MovieItem_image}
           src={`https://image.tmdb.org/t/p/w500${imgURL}`}
