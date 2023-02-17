@@ -9,13 +9,11 @@ const Movies = lazy(() => import('./pages/Movies/Movies'));
 
 const MovieDetails = lazy(() => import('./pages/MovieDetails/MovieDetals'));
 const Cast = lazy(() => import('./modules/Cast/Cast'));
+const Reviews = lazy(() => import('./modules/Reviews/Reviews'));
+
 const NotFoundPage = lazy(() => import('./modules/NotFoundPage/NotFoundPage'));
-// api
-// import { searchMovies } from './shared/services/movie-api';
 
 const App = () => {
-  // useEffect(() => {}, []);
-
   return (
     <Suspense fallback={<Spinner />}>
       <NavBar />
@@ -25,7 +23,7 @@ const App = () => {
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
-          {/* <Route path="reviews" element={<Reviews />} /> */}
+          <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

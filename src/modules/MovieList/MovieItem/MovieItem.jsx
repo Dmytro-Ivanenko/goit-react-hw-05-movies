@@ -3,19 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './movieItem.module.scss';
 
-const MovieItem = ({
-  imgURL = 'https://media0.giphy.com/media/MaUARAPy1EfXS4P0H5/giphy.gif?cid=6c09b952llb5gb5odl4tosfmbrad3iiwjny29y5iuhwl5pya&rid=giphy.gif&ct=s',
-  id,
-  movieTitle = '',
-  dateYear = 'some year',
-}) => {
+const MovieItem = ({ imgURL, id, movieTitle = '', dateYear = 'some year' }) => {
   const location = useLocation();
   return (
     <li className={styles.MovieItem}>
       <Link to={`/movies/${id}`} state={{ from: location }}>
         <img
           className={styles.MovieItem_image}
-          src={`https://image.tmdb.org/t/p/w500${imgURL}`}
+          src={
+            imgURL === null
+              ? 'https://media0.giphy.com/media/MaUARAPy1EfXS4P0H5/giphy.gif?cid=6c09b952llb5gb5odl4tosfmbrad3iiwjny29y5iuhwl5pya&rid=giphy.gif&ct=s'
+              : `https://image.tmdb.org/t/p/w500${imgURL}`
+          }
           alt={movieTitle}
         />
 

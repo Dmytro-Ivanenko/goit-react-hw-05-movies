@@ -1,53 +1,41 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import Button from '../../shared/components/Button/Button';
-import styles from './searchbar.module.scss';
+// import styles from './cast.module.scss';
+import Spinner from '../../shared/components/Spinner/Spinner';
+import ReviewsList from './ReviewsList/ReviewsList';
+import { getMovieAddInfo } from '../../shared/services/movie-api';
 
-const Searchbar = ({ onSubmit }) => {
-  const [search, setSearch] = useState('');
+const Cast = () => {
+  const [reviewData, setReviewData] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { movieId } = useParams();
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  useEffect(() => {
+    const fetchReview = async () => {
+      try {
+        setLoading(true);
 
-    if (search.trim() !== '') {
-      onSubmit(search);
-      setSearch('');
-    } else {
-      Notify.failure('Please enter a search query.');
-    }
-  };
+        const data = await getMovieAddInfo(movieId, '/reviews');
 
-  const handleChangeInput = e => {
-    setSearch(e.target.value);
-  };
+        setReviewData(data.results);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchReview();
+  }, []);
 
   return (
-    <div className={styles.Searchbar}>
-      <h1>Movie search</h1>
-
-      <form className={styles.form}>
-        <input
-          className={styles.input}
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Enter the name of the movie"
-          value={search}
-          onChange={handleChangeInput}
-        />
-        <Button type="submit" onClickBtn={handleSubmit}>
-          Search
-        </Button>
-      </form>
+    <div>
+      {isLoading && <Spinner />}
+      {error && <p>{error.massage}</p>}
+      <ReviewsList review={reviewData} />
     </div>
   );
 };
 
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  inputPlaceholder: PropTypes.string,
-  title: PropTypes.string,
-};
-export default Searchbar;
+export default Cast;

@@ -8,7 +8,6 @@ const instance = axios.create({
 });
 
 export const searchMovies = async query => {
-  console.log(`вызов из апи: ${query}`);
   const { data } = await instance.get('/search/movie', {
     params: {
       query,
@@ -22,12 +21,7 @@ export const getTrendsMovies = async () => {
   return data;
 };
 
-export const getMovieDetails = async id => {
-  const { data } = await instance.get(`/movie/${id}`);
-  return data;
-};
-
-export const getMovieCast = async id => {
-  const { data } = await instance.get(`/movie/${id}/credits`);
+export const getMovieAddInfo = async (id, addInfo = '') => {
+  const { data } = await instance.get(`/movie/${id}${addInfo}`);
   return data;
 };

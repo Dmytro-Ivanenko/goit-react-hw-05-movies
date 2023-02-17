@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 import Spinner from '../../shared/components/Spinner/Spinner';
-import { getMovieDetails } from '../../shared/services/movie-api';
+import { getMovieAddInfo } from '../../shared/services/movie-api';
 import Button from '../../shared/components/Button/Button';
 
 const MovieDetails = () => {
@@ -21,9 +21,6 @@ const MovieDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const prevPage = location.state?.from || '/';
-
-  console.dir(prevPage);
-
   const toPrevPage = () => navigate(prevPage);
 
   //  запит деталей фільму:
@@ -32,7 +29,7 @@ const MovieDetails = () => {
       try {
         setLoading(true);
 
-        const data = await getMovieDetails(movieId);
+        const data = await getMovieAddInfo(movieId);
 
         setFilmData(data);
       } catch (error) {

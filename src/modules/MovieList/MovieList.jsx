@@ -5,8 +5,6 @@ import { nanoid } from 'nanoid';
 import MovieItem from './MovieItem/MovieItem';
 import styles from './movieList.module.scss';
 
-// передивитись логіку, чи треба тут обробка кліку, інщі пропси
-
 const MovieList = ({ movies }) => {
   return (
     <>
