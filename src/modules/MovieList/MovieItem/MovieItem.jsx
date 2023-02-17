@@ -7,7 +7,11 @@ const MovieItem = ({ imgURL, id, movieTitle = '', dateYear = 'some year' }) => {
   const location = useLocation();
   return (
     <li className={styles.MovieItem}>
-      <Link to={`/movies/${id}`} state={{ from: location }}>
+      <Link
+        className={`${styles.link}`}
+        to={`/movies/${id}`}
+        state={{ from: location }}
+      >
         <img
           className={styles.MovieItem_image}
           src={
@@ -32,7 +36,7 @@ const MovieItem = ({ imgURL, id, movieTitle = '', dateYear = 'some year' }) => {
 MovieItem.propTypes = {
   id: PropTypes.number.isRequired,
   imgURL: PropTypes.string,
-  movieTitle: PropTypes.string,
+  movieTitle: PropTypes.string.isRequired,
   dateYear: PropTypes.string,
 };
 

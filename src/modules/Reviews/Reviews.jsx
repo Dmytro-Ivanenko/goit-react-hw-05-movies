@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-// import styles from './cast.module.scss';
 import Spinner from '../../shared/components/Spinner/Spinner';
 import ReviewsList from './ReviewsList/ReviewsList';
 import { getMovieAddInfo } from '../../shared/services/movie-api';

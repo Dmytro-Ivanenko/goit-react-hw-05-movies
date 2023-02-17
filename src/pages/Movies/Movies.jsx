@@ -6,7 +6,6 @@ import Spinner from '../../shared/components/Spinner/Spinner';
 import Searchbar from '../../modules/Searchbar/Searchbar';
 import { searchMovies } from '../../shared/services/movie-api';
 
-// import styles from './movies.module.scss';
 const Movies = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(false);

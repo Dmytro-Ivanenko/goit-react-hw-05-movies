@@ -10,13 +10,15 @@ import {
 import Spinner from '../../shared/components/Spinner/Spinner';
 import { getMovieAddInfo } from '../../shared/services/movie-api';
 import Button from '../../shared/components/Button/Button';
+import styles from './movieDetails.module.scss';
 
+// Компонент
 const MovieDetails = () => {
   const [filmData, setFilmData] = useState({});
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Навігація
+  // навігація
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -48,7 +50,7 @@ const MovieDetails = () => {
 
   // РЕНДЕР
   return (
-    <>
+    <div className={`${styles.detailsWrapper}`}>
       {isLoading && <Spinner />}
       {error && <p>{error.massage}</p>}
 
@@ -56,9 +58,10 @@ const MovieDetails = () => {
         Go back
       </Button>
       {filmData && (
-        <div>
+        <div className={`${styles.filmData}`}>
           {poster_path && (
             <img
+              className={`${styles.img}`}
               src={`https://image.tmdb.org/t/p/w500${poster_path}`}
               alt={title}
             />
@@ -78,14 +81,18 @@ const MovieDetails = () => {
       )}
 
       <div>
-        <p>Additional Info</p>
-        <div>
-          <Link to={`cast`}>Cast</Link>
-          <Link to={`reviews`}>Reviews</Link>
+        <h3>Additional Info:</h3>
+        <div className={`${styles.addInfo}`}>
+          <Link className={`${styles.link}`} to={`cast`}>
+            Cast
+          </Link>
+          <Link className={`${styles.link}`} to={`reviews`}>
+            Reviews
+          </Link>
         </div>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 };
 

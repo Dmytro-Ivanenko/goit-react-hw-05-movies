@@ -12,6 +12,7 @@ const CastList = ({ cast }) => {
           return (
             <li key={id}>
               <img
+                className={`${styles.img}`}
                 src={
                   profile_path === null
                     ? 'https://icon-library.com/images/no-picture-available-icon/no-picture-available-icon-20.jpg'

@@ -5,12 +5,12 @@ const Spinner = () => {
   return (
     <ColorRing
       visible={true}
-      height="80"
-      width="80"
+      height="90"
+      width="90"
       ariaLabel="blocks-loading"
       wrapperStyle={{}}
-      wrapperClass="blocks-wrapper"
-      colors={['#ffeb0d', '#3f51b5', '#ffeb0d', '#3f51b5', '#ffeb0d']}
+      wrapperClass="spinner-wrapper"
+      colors={['#000000', '#ff0000', '#000000', '#ff0000', '#389482']}
     />
   );
 };

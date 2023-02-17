@@ -1,0 +1,30 @@
+.detailsWrapper {
+  width: 100%;
+  text-align: left;
+}
+
+.filmData {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 50px;
+
+  margin-top: 20px;
+}
+
+.img {
+  width: 350px;
+  border-radius: 2%;
+}
+
+.addInfo {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+
+  margin-bottom: 50px;
+}
+
+.link {
+  color: #000000;
+}

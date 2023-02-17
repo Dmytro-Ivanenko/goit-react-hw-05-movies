@@ -3,7 +3,6 @@ import MovieList from '../../modules/MovieList/MovieList';
 import Spinner from '../../shared/components/Spinner/Spinner';
 import { getTrendsMovies } from '../../shared/services/movie-api';
 
-// import styles from './home.module.scss';
 const Home = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(false);

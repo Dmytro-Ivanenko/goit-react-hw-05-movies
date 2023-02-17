@@ -25,7 +25,7 @@ const Searchbar = ({ onSubmit }) => {
 
   return (
     <div className={styles.Searchbar}>
-      <h1>Movie search</h1>
+      <h1 className={styles.title}>Movie search</h1>
 
       <form className={styles.form}>
         <input
