@@ -23,7 +23,11 @@ const MovieDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const prevPage = location.state?.from || '/';
-  const toPrevPage = () => navigate(prevPage);
+
+  // go back
+  const toPrevPage = () => {
+    navigate(prevPage);
+  };
 
   //  запит деталей фільму:
   useEffect(() => {
@@ -83,10 +87,18 @@ const MovieDetails = () => {
       <div>
         <h3>Additional Info:</h3>
         <div className={`${styles.addInfo}`}>
-          <Link className={`${styles.link}`} to={`cast`}>
+          <Link
+            className={`${styles.link}`}
+            to={`cast`}
+            state={{ from: prevPage }}
+          >
             Cast
           </Link>
-          <Link className={`${styles.link}`} to={`reviews`}>
+          <Link
+            className={`${styles.link}`}
+            to={`reviews`}
+            state={{ from: prevPage }}
+          >
             Reviews
           </Link>
         </div>

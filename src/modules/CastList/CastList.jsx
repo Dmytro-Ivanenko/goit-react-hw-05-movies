@@ -8,9 +8,9 @@ const CastList = ({ cast }) => {
     <>
       <h3>Cast</h3>
       <ul className={styles.castList}>
-        {cast?.map(({ id, name, character, profile_path }) => {
+        {cast?.map(({ cast_id, name, character, profile_path }) => {
           return (
-            <li key={id}>
+            <li key={cast_id}>
               <img
                 className={`${styles.img}`}
                 src={
@@ -31,7 +31,14 @@ const CastList = ({ cast }) => {
 };
 
 CastList.propTypes = {
-  cast: PropTypes.array.isRequired,
+  cast: PropTypes.arrayOf(
+    PropTypes.shape({
+      cast_id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      character: PropTypes.string.isRequired,
+      profile_path: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default CastList;

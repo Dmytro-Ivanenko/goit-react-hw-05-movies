@@ -26,7 +26,13 @@ const ReviewList = ({ review }) => {
 };
 
 ReviewList.propTypes = {
-  review: PropTypes.array.isRequired,
+  review: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string,
+      content: PropTypes.string,
+      created_at: PropTypes.string,
+    })
+  ).isRequired,
 };
-
 export default ReviewList;

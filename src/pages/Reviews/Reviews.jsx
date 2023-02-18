@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Spinner from '../../shared/components/Spinner/Spinner';
-import ReviewsList from './ReviewsList/ReviewsList';
+import ReviewsList from '../../modules/ReviewsList/ReviewsList';
 import { getMovieAddInfo } from '../../shared/services/movie-api';
 
-const Cast = () => {
+const Reviews = () => {
   const [reviewData, setReviewData] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -37,4 +37,4 @@ const Cast = () => {
   );
 };
 
-export default Cast;
+export default Reviews;

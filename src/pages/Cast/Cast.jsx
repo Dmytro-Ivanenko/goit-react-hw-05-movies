@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Spinner from '../../shared/components/Spinner/Spinner';
-import CastList from './CastList/CastList';
+import CastList from '../../modules/CastList/CastList';
 import { getMovieAddInfo } from '../../shared/services/movie-api';
 
 const Cast = () => {

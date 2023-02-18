@@ -7,8 +7,8 @@ const NavBar = lazy(() => import('./modules/NavBar/NavBar'));
 const Home = lazy(() => import('./pages/Home/Home'));
 const Movies = lazy(() => import('./pages/Movies/Movies'));
 const MovieDetails = lazy(() => import('./pages/MovieDetails/MovieDetails'));
-const Cast = lazy(() => import('./modules/Cast/Cast'));
-const Reviews = lazy(() => import('./modules/Reviews/Reviews'));
+const Cast = lazy(() => import('./pages/Cast/Cast'));
+const Reviews = lazy(() => import('./pages/Reviews/Reviews'));
 const NotFoundPage = lazy(() => import('./modules/NotFoundPage/NotFoundPage'));
 
 const App = () => {
